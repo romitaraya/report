@@ -1,0 +1,30 @@
+*              <fs_tab>-invoice_date <fs_tab>-invoice_type <fs_tab>-atten_brf <fs_tab>-atten_brf_email <fs_tab>-ap_mf_email <fs_tab>-entity_no
+*              <fs_tab>-entity_name <fs_tab>-entity_addr <fs_tab>-credit_gl <fs_tab>-inv_status <fs_tab>-clearing_date <fs_tab>-rrf_curr
+*              <fs_tab>-brf_curr <fs_tab>-rrf_line_item_total <fs_tab>-brf_line_item_amount <fs_tab>-invoice_amount <fs_tab>-vendor_name
+*              <fs_tab>-gp_fyear <fs_tab>-commitment_type  lv_ad lv_ca
+*              lv_1 lv_2 lv_3 lv_4
+*              lv_5 lv_6 lv_dr lv_fc
+**              lv_additional_demand lv_consumption_based_amount
+**              lv_year1_commitment_amount lv_year2_commitment_amount lv_year3_commitment_amount lv_year4_commitment_amount
+**              lv_year5_commitment_amount lv_year6_commitment_amount lv_description_of_recharge lv_financial_comment
+*              INTO lv_line SEPARATED BY lc_delimit.
+*              TRANSFER lv_line TO gv_fileapp.
+*
+*              CLEAR: lv_ad , lv_ca, lv_1, lv_2, lv_3, lv_4, lv_5, lv_6, lv_dr, lv_fc.
+*
+*            ENDLOOP.
+*
+*          ENDIF.
+*        ELSE.
+*          MESSAGE 'Error occured while opening dataset'(002) TYPE 'E'.
+*        ENDIF.
+*
+*        lv_cnt = lv_cnt + 1.
+*        CLOSE DATASET gv_fileapp.
+*      CATCH cx_sy_file_open.
+*        MESSAGE 'Error writing the data to file'(003) TYPE 'E'.
+*    ENDTRY.
+
+  ENDIF.
+
+ENDFORM.
